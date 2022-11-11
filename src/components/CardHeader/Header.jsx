@@ -10,8 +10,8 @@ const Header = () => {
             <img src={icon} alt="icon" />
           </div>
           <div className="text">
-            <p style={{fontSize:"20px"}}>Share to web</p>
-            <p style={{color:"grey",fontSize:"12px"}}>Publish and share link with anyone</p>
+            <p style={{fontSize:"20px",margin:"0"}}>Share to web</p>
+            <p style={{color:"grey",fontSize:"12px",margin:"0"}}>Publish and share link with anyone</p>
           </div>
         </div>
         <div className="header-right" style={{marginRight:"15px"}}>

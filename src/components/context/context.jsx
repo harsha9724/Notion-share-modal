@@ -7,38 +7,45 @@ import P from "../../images/product.png"
 
 export const context=createContext();
 export const ContextProvider=(props)=>{
-    const members=[
+    var members=[
         {
             name:"tom cook",
             email:"tomcook@gmail.com",
-            profileImg:p1
+            profileImg:p1,
+            access:""
         },
         {
             name:"jhon",
             email:"jhon@gmail.com",
-            profileImg:p2
+            profileImg:p2,
+            access:""
 
         },
         {
             name:"harsha",
             email:"harsha@gmail.com",
-            profileImg:p2
+            profileImg:p2,
+            access:""
 
         }
     ]
-    const groups=[
+    var groups=[
         {   
             img:E,
-            branch:"Engineering"
+            branch:"Engineering",
+            access:""
         },
         {   
             img:P,
-            branch:"Product"
+            branch:"Product",
+            access:""
         }
     ];
 const [grouplist,setGrouplist]=useState(groups);
-const [selectedUser,setSelectedUser]=useState([]);
+var [selectedUser,setSelectedUser]=useState([]);
 const [memberslist,setMemberlist]=useState(members);
+const [isselect,setIsselect]=useState(false);
+
 
     return(
         <context.Provider value={
@@ -47,7 +54,8 @@ const [memberslist,setMemberlist]=useState(members);
             selectedUser,
             setSelectedUser,
             grouplist,
-            setGrouplist
+            setGrouplist,
+            isselect,setIsselect
             }}>
             {props.children}
         </context.Provider>

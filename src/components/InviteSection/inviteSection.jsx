@@ -3,7 +3,7 @@ import { context } from "../context/context"
 import "./inviteSection.css"
 
 const InviteSection=()=>{
-    const {memberslist,grouplist,selectedUser,setSelectedUser}=useContext(context);
+    const {memberslist,grouplist,selectedUser,setSelectedUser,isselect,setIsselect}=useContext(context);
 /** fuction to check the person is selected or not */
     const  checkSelected=(data)=>{
     let usercount=0;
@@ -30,14 +30,15 @@ const InviteSection=()=>{
             return 
         }
         else{
+            // setIsselect(!isselect);
             setSelectedUser([...selectedUser,data]);
             // localStorage.setItem("selectedlist",data);
-            if(localStorage.getItem("selectedUser")==null){
-                localStorage.setItem("selectedUser",' []')
-            }
-            var oldData=JSON.parse(localStorage.getItem("selectedUser"));
-            oldData.push(data);
-            localStorage.setItem("selectedUser",JSON.stringify(oldData));
+            // if(localStorage.getItem("selectedUser")==null){
+            //     localStorage.setItem("selectedUser",' []')
+            // }
+            // var oldData=JSON.parse(localStorage.getItem("selectedUser"));
+            // oldData.push(data);
+            // localStorage.setItem("selectedUser",JSON.stringify(oldData));
         }
        
     }
@@ -49,7 +50,7 @@ const InviteSection=()=>{
                 return(
                     <div className="member-container" key={i} onClick={()=>handleSelect(member)} >                  
                         <img src={member.profileImg} alt="" />
-                        <p>{member.name}</p>              
+                        <h6 style={{marginTop:"10px"}}>{member.name}</h6>              
                     </div>
                 )
             })
@@ -60,7 +61,7 @@ const InviteSection=()=>{
                 return(
                     <div className="member-container" key={i} onClick={()=>handleSelect(group)}>
                         <img src={group.img} alt="" />
-                        <p>{group.branch}</p>  
+                        <h6 style={{marginTop:"10px"}}>{group.branch}</h6>  
                     </div>
                 )
             })

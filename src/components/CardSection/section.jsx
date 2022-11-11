@@ -4,6 +4,8 @@ import downarrow from "../../images/down.png";
 import { useNavigate } from "react-router-dom"
 const Section=()=>{
     const navigate = useNavigate();
+    let userdata=JSON.parse(localStorage.getItem("selectedUser"));
+    // console.log(data);
     return(
         <div className="Section-container">
         <div className="input-section">
@@ -19,8 +21,8 @@ const Section=()=>{
                 <img src={Osplaslogo} alt="logo" style={{borderRadius:"50%"}} />
                 </div>
                 <div>
-                    <p style={{fontWeight:"600"}}>Everyone at OSlash</p>
-                    <p style={{color:"grey",fontSize:"12px"}}>25 workspace members</p>
+                    <p style={{fontWeight:"600",margin:"0"}}>Everyone at OSlash</p>
+                    <p style={{color:"grey",fontSize:"12px",margin:"0"}}>25 workspace members</p>
                 </div>
                
 
@@ -30,6 +32,34 @@ const Section=()=>{
                 <img src={downarrow} alt="" />
             </div>
          </div>
+         {
+            userdata.map((user)=>{
+                return (
+                    <>
+                    <div className="default-list">
+            <div className="left">
+                <div style={{marginTop:"2px",marginRight:"20px"}}>
+                <img src={user.profileImg} alt="logo" style={{borderRadius:"50%",height:"100%",width:"100%"}} />
+                </div>
+                <div>
+                    <p style={{fontWeight:"600",margin:"0"}}>{user.name}</p>
+                    <p style={{color:"grey",fontSize:"12px",margin:"0"}}>{user.email}</p>
+                </div>
+               
+
+            </div>
+            <div className="right">
+                <span style={{marginRight:"15px",color:"grey", fontSize:"12px"}}>{user.access}</span>
+                <img src={downarrow} alt="" />
+            </div>
+         </div>
+                    </>
+                )
+            })
+         }
+         {
+
+         }
          
         </div>
        

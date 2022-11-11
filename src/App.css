@@ -5,8 +5,8 @@
 }
 
 .shareContainer{
-  margin-top: 25px;
-  margin-left: 25px;
+margin-top: 25px;
+margin-left: 25px;
 width: 95px;
 height: 36px;
 background-color: black;
@@ -21,6 +21,9 @@ cursor: pointer;
 font-weight: 600;
 border-radius: 5px;
 margin-bottom: 3px;
+}
+.shareContainer p{
+  margin: 0;
 }
 .popup-card{
   margin-left: 25px;
