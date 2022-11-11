@@ -28,3 +28,17 @@
     border-radius: 5px;
     border: none;
 }
+.selected-name{
+    display: flex;
+    column-gap: 10px;
+    border: 1px solid white;
+    background-color: white;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 5px;
+    align-items: center;
+    margin-right: 5px;
+}
+.input{
+    display: flex;
+}

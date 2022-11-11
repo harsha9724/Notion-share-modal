@@ -3,6 +3,7 @@
 // import Section from "../CardSection/section";
 import InviteFooter from "../inviteFooter/inviteFooter";
 import InviteHeader from "../inviteHeader/inviteHeader";
+import InviteSection from "../InviteSection/inviteSection";
 import "./inviteCard.css";
 const Invite=()=>{
     return (
@@ -12,6 +13,7 @@ const Invite=()=>{
          <InviteHeader/>
          </div>
          <div style={{padding:"15px"}}>
+            <InviteSection/>
          </div>
          <div className="footer">
         <InviteFooter/>

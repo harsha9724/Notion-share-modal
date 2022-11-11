@@ -5,14 +5,16 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import Invite from './components/InviteCard/InviteCard';
-
+import { ContextProvider } from './components/context/context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
+  <ContextProvider>
   <Routes>
     <Route path="/" element={<App/>} />
     <Route path="/invite" element={<Invite/>}/>
   </Routes>
+  </ContextProvider>
     </BrowserRouter>
 
 );
