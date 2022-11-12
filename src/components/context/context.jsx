@@ -33,12 +33,12 @@ export const ContextProvider=(props)=>{
     ]
     var groups=[
         {   
-            img:E,
+            profileImg:E,
             branch:"Engineering",
             access:"No access"
         },
         {   
-            img:P,
+            profileImg:P,
             branch:"Product",
             access:"No access"
         }

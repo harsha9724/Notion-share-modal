@@ -33,6 +33,7 @@ const Section=()=>{
             </div>
          </div>
          {
+            (userdata!==null)? 
             userdata.map((user,i)=>{
                 return (
                     <>
@@ -41,8 +42,17 @@ const Section=()=>{
                 <div style={{marginTop:"2px",marginRight:"20px"}}>
                 <img src={user.profileImg} alt="logo" style={{borderRadius:"50%",height:"100%",width:"100%"}} />
                 </div>
-                <div>
-                    <p style={{fontWeight:"600",margin:"0"}}>{user.name}</p>
+                <div>{
+                    (user.name!==undefined)? 
+                    <p style={{fontWeight:"600",margin:"0"}}>
+                    {user.name}
+                  
+                   </p>:  <p style={{fontWeight:"600",margin:"0"}}>
+                    {user.branch}
+                  
+                   </p>
+                    }
+                   
                     <p style={{color:"grey",fontSize:"12px",margin:"0"}}>{user.email}</p>
                 </div>
                
@@ -55,7 +65,7 @@ const Section=()=>{
          </div>
                     </>
                 )
-            })
+            }) : ""
          }
          {
 
