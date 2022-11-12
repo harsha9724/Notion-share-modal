@@ -33,10 +33,10 @@ const Section=()=>{
             </div>
          </div>
          {
-            userdata.map((user)=>{
+            userdata.map((user,i)=>{
                 return (
                     <>
-                    <div className="default-list">
+                    <div className="default-list" key={i}>
             <div className="left">
                 <div style={{marginTop:"2px",marginRight:"20px"}}>
                 <img src={user.profileImg} alt="logo" style={{borderRadius:"50%",height:"100%",width:"100%"}} />
