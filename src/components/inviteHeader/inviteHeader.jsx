@@ -11,7 +11,7 @@ import {useNavigate} from "react-router-dom"
 
 const InviteHeader = () => {
     const navigate=useNavigate()
-    const [selectedaccess,setSelectedAccess]=useState("");
+    const [selectedaccess,setSelectedAccess]=useState("No access");
   var {
     setMemberlist,
     memberslist,
@@ -50,11 +50,18 @@ const InviteHeader = () => {
       document.location.reload();
     }
     setSelectedUser(filerarry);
-    var oldData = JSON.parse(localStorage.getItem("selectedUser"));
-    oldData.splice(idx, 1);
-    localStorage.setItem("selectedUser", JSON.stringify(oldData));
+    // var oldData = JSON.parse(localStorage.getItem("selectedUser"));
+    // oldData.splice(idx, 1);
+    // localStorage.setItem("selectedUser", JSON.stringify(oldData));
   };
-
+function checkPresentData(arr,data){
+  for(let i=0;i<arr.length;i++){
+    if(arr[i].name==data.name){
+      return i
+    }
+  }
+return -1;
+}
   const handleInvite=()=>{
         if(selectedUser.length==0){
             return
@@ -64,45 +71,53 @@ const InviteHeader = () => {
            data.access=selectedaccess;
             console.log(data.access);
             if(localStorage.getItem("selectedUser")==null){
-                localStorage.setItem("selectedUser",' []')
+                localStorage.setItem("selectedUser",'[]')
             }
             var oldData=JSON.parse(localStorage.getItem("selectedUser"));
-            if((oldData.length>0) && (oldData[0].name==data.name || oldData[0].branch==data.branch )){
-                // oldData.access=selectedaccess;
-               oldData[0].access=selectedaccess;
-               console.log(oldData);
-               localStorage.setItem("selectedUser",JSON.stringify(oldData));
-            }
-            else{
-                oldData.push(data);
-                localStorage.setItem("selectedUser",JSON.stringify(oldData));
-               
-            }     
-                //    document.location.reload();
-                navigate("/")
+            let i=checkPresentData(oldData,data);
+             console.log(i);
+             if(i==-1){
+                oldData.push(data); 
+                localStorage.setItem("selectedUser",JSON.stringify(oldData));  
+             }
+             else{
+              oldData[i].access=selectedaccess;
+              localStorage.setItem("selectedUser",JSON.stringify(oldData)); 
+             }
+             navigate("/")
+                   document.location.reload();
+             
         }
-        else{
-            for(let i=0;i<selectedUser.length;i++){
-                 let data=selectedUser[i];
-                 data.access=selectedaccess;
-                 console.log(data.access);
-                 if(localStorage.getItem("selectedUser")==null){
-                    localStorage.setItem("selectedUser",' []')
-                }
-                 var oldData=JSON.parse(localStorage.getItem("selectedUser"));
-                 for(let j=0;j<oldData.length;j++){
-                    if((oldData[j].name==data.name)){
-                        // oldData.access=selectedaccess;
-                       oldData[j].access=selectedaccess;
-                       console.log(oldData[j]);
-                     localStorage.setItem("selectedUser",JSON.stringify(oldData[j]));
-                    }  
-                 }
-                 oldData.push(data);
-                 localStorage.setItem("selectedUser",JSON.stringify(oldData));
+        // else{
+        //     // for(let i=0;i<selectedUser.length;i++){
+        //     //      let data=selectedUser[i];
+        //     //      data.access=selectedaccess;
+        //     //      console.log(data.access);
+        //     //      if(localStorage.getItem("selectedUser")==null){
+        //     //         localStorage.setItem("selectedUser",' []')
+        //     //     }
+        //     //      var oldData=JSON.parse(localStorage.getItem("selectedUser"));
+        //     //      for(let j=0;j<oldData.length;j++){
+        //     //         if((oldData[j].name==data.name)){
+        //     //             // oldData.access=selectedaccess;
+        //     //            oldData[j].access=selectedaccess;
+        //     //            console.log(oldData[j]);
+        //     //          localStorage.setItem("selectedUser",JSON.stringify(oldData[j]));
+        //     //         }  
+        //     //      }
+        //     //      oldData.push(data);
+        //     //      localStorage.setItem("selectedUser",JSON.stringify(oldData));
                       
 
-            }
+        //     // }
+        //     // for(let i=0;i<selectedUser.length;i++){
+        //     //   var oldData=JSON.parse(localStorage.getItem("selectedUser"));
+
+        //     // }
+        //     // console.log(selectedUser);
+        // }
+        else{
+          alert("please select one person")
         }
   }
   return (

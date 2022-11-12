@@ -15,7 +15,10 @@ const Header = () => {
           </div>
         </div>
         <div className="header-right" style={{marginRight:"15px"}}>
-            <button>Toggle</button>
+        <label class="switch">
+  <input type="checkbox"/>
+  <span class="slider round"></span>
+</label>
         </div>
       </div>
     </>

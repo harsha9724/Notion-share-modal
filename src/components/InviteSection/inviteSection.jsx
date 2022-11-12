@@ -32,6 +32,7 @@ const InviteSection=()=>{
         else{
             // setIsselect(!isselect);
             setSelectedUser([...selectedUser,data]);
+            // console.log(selectedUser);
             // localStorage.setItem("selectedlist",data);
             // if(localStorage.getItem("selectedUser")==null){
             //     localStorage.setItem("selectedUser",' []')

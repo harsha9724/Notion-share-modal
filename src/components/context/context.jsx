@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import p1 from "../../images/p1.png"
 import p2 from "../../images/p2.png"
+import p3 from "../../images/p3.png"
 import E from "../../images/Eng.png";
 import P from "../../images/product.png"
 
@@ -9,23 +10,24 @@ export const context=createContext();
 export const ContextProvider=(props)=>{
     var members=[
         {
-            name:"tom cook",
-            email:"tomcook@gmail.com",
+            name:"Arlene Mccoy",
+            email:"arlen@gmail.com",
             profileImg:p1,
-            access:""
+            access:"No access"
+           
         },
         {
             name:"jhon",
             email:"jhon@gmail.com",
             profileImg:p2,
-            access:""
+            access:"No access"
 
         },
         {
-            name:"harsha",
-            email:"harsha@gmail.com",
-            profileImg:p2,
-            access:""
+            name:"tom cook",
+            email:"tomcook@gmail.com",
+            profileImg:p3,
+            access:"No access"
 
         }
     ]
@@ -33,12 +35,12 @@ export const ContextProvider=(props)=>{
         {   
             img:E,
             branch:"Engineering",
-            access:""
+            access:"No access"
         },
         {   
             img:P,
             branch:"Product",
-            access:""
+            access:"No access"
         }
     ];
 const [grouplist,setGrouplist]=useState(groups);
