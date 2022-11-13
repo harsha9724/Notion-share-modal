@@ -61,7 +61,7 @@ const InviteSection=()=>{
            grouplist.slice(0,2).map((group,i)=>{
                 return(
                     <div className="member-container" key={i} onClick={()=>handleSelect(group)}>
-                        <img src={group.img} alt="" />
+                        <img src={group.profileImg} alt="" />
                         <h6 style={{marginTop:"10px"}}>{group.branch}</h6>  
                     </div>
                 )
